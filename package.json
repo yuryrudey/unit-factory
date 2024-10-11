@@ -1,6 +1,6 @@
 {
   "name": "unit-factory",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "build": "tsc && vite build"
@@ -12,12 +12,12 @@
   },
   "files": ["dist"],
   "types": "./dist/unit-factory.d.ts",
-  "main": "./dist/unit-factory.umd.js",
+  "main": "./dist/unit-factory.umd.cjs",
   "module": "./dist/unit-factory.esm.js",
   "exports": {
     ".": {
       "types": "./dist/unit-factory.d.ts",
-      "require": "./dist/unit-factory.umd.js",
+      "require": "./dist/unit-factory.umd.cjs",
       "import": "./dist/unit-factory.esm.js"
     }
   },
