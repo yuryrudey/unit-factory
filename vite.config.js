@@ -12,7 +12,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, './src/main.ts'),
       name: 'UnitFactory',
       formats: ['esm', 'umd'],
-      fileName: (format) => `unit-factory.${format}.js`
+      fileName: 'unit-factory'
     }
   }
 })
