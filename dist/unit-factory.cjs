@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});function n(e){let r,i;if(typeof e=="string"){e=e.trim();const t=e.match(/^(?<value>(?:\+|-)?\d+(?:\.\d+)?(?:(?:e|E)(?:\+|-)?\d+)?) {0,1}(?<unit>[a-zA-Z]+)?$/);if(!t||!t.groups)throw new Error("Input is invalid");r=parseFloat(t.groups.value),i=t.groups.unit??""}else r=e,i="";if(isNaN(r))throw new Error("Value is not a number");if(!isFinite(r))throw new Error("Value is infinite");return[r,i]}exports.parseValueUnitString=n;
+//# sourceMappingURL=unit-factory.cjs.map

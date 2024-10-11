@@ -11,8 +11,16 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, './src/main.ts'),
       name: 'UnitFactory',
-      formats: ['esm', 'umd'],
-      fileName: 'unit-factory'
+      formats: ['es', 'cjs', 'iife'],
+      fileName: (format) => {
+        const name = 'unit-factory'
+        if(format === 'es')
+          return `${name}.js`
+        if(format === 'cjs')
+          return `${name}.cjs`
+        if(format === 'iife')
+          return `${name}.browser.js`
+      }
     }
   }
 })

@@ -17,4 +17,4 @@ function n(r) {
 export {
   n as parseValueUnitString
 };
-//# sourceMappingURL=unit-factory.esm.js.map
+//# sourceMappingURL=unit-factory.js.map
