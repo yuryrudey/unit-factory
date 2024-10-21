@@ -5,7 +5,7 @@ Via CDN:
 <script src="https://unpkg.com/unit-factory/dist/unit-factory.browser.js"></script>
 ```
 
-Via package manager:
+Using package manager:
 ```bash
 # npm
 npm i unit-factory
