@@ -23,8 +23,8 @@ declare interface UnitInstance<US, UN, UI> {
     get symbol(): US;
     get name(): UN;
     to(identifier: UI): UnitInstance<US, UN, UI>;
-    add(operand: UnitInstance<US, UN, UI>): UnitInstance<US, UN, UI>;
-    subtract(operand: UnitInstance<US, UN, UI>): UnitInstance<US, UN, UI>;
+    add(operand: string | number | UnitInstance<US, UN, UI>): UnitInstance<US, UN, UI>;
+    subtract(operand: string | number | UnitInstance<US, UN, UI>): UnitInstance<US, UN, UI>;
     format(): string;
     clone(): UnitInstance<US, UN, UI>;
     toString(): string;

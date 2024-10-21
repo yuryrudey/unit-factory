@@ -54,13 +54,17 @@ export function createUnitFactory<T extends UnitConfig>(unitConfigs: T[]) {
       return new Unit(outputValue, identifier)
     }
 
-    add(operand: UnitInstance<UnitSymbol, UnitName, UnitIdentifier>) {
-      const resultValue = (this.baseValue + operand.baseValue) / this.unitConfig.factor
+    add(operand: string | number | UnitInstance<UnitSymbol, UnitName, UnitIdentifier>) {
+      if(typeof operand === 'string' || typeof operand === 'number')
+        operand = Unit.from(operand)
+      const resultValue: number = (this.baseValue + operand.baseValue) / this.unitConfig.factor
       return new Unit(resultValue, this.symbol)
     }
 
-    subtract(operand: UnitInstance<UnitSymbol, UnitName, UnitIdentifier>) {
-      const resultValue = (this.baseValue - operand.baseValue) / this.unitConfig.factor
+    subtract(operand: string | number | UnitInstance<UnitSymbol, UnitName, UnitIdentifier>) {
+      if(typeof operand === 'string' || typeof operand === 'number')
+        operand = Unit.from(operand)
+      const resultValue: number = (this.baseValue - operand.baseValue) / this.unitConfig.factor
       return new Unit(resultValue, this.symbol)
     }
 

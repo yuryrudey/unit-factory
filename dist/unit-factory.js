@@ -1,35 +1,35 @@
 var l = Object.defineProperty;
-var m = (e, t, s) => t in e ? l(e, t, { enumerable: !0, configurable: !0, writable: !0, value: s }) : e[t] = s;
-var u = (e, t, s) => m(e, typeof t != "symbol" ? t + "" : t, s);
-function f(e) {
-  let t, s;
-  if (typeof e == "string") {
-    e = e.trim();
-    const r = e.match(/^(?<value>(?:\+|-)?\d+(?:\.\d+)?(?:(?:e|E)(?:\+|-)?\d+)?) {0,1}(?<unit>[a-zA-Z]+)?$/);
+var f = (o, e, s) => e in o ? l(o, e, { enumerable: !0, configurable: !0, writable: !0, value: s }) : o[e] = s;
+var u = (o, e, s) => f(o, typeof e != "symbol" ? e + "" : e, s);
+function m(o) {
+  let e, s;
+  if (typeof o == "string") {
+    o = o.trim();
+    const r = o.match(/^(?<value>(?:\+|-)?\d+(?:\.\d+)?(?:(?:e|E)(?:\+|-)?\d+)?) {0,1}(?<unit>[a-zA-Z]+)?$/);
     if (!r || !r.groups)
       throw new Error("Input is invalid");
-    t = parseFloat(r.groups.value), s = r.groups.unit ?? "";
+    e = parseFloat(r.groups.value), s = r.groups.unit ?? "";
   } else
-    t = e, s = "";
-  if (isNaN(t))
+    e = o, s = "";
+  if (isNaN(e))
     throw new Error("Value is not a number");
-  if (!isFinite(t))
+  if (!isFinite(e))
     throw new Error("Value is infinite");
-  return [t, s];
+  return [e, s];
 }
-function c(e) {
-  const t = e[0], s = e.reduce((r, n) => ([n.symbol, n.name].flat().forEach((o) => {
-    r[o.toLowerCase()] = n;
+function c(o) {
+  const e = o[0], s = o.reduce((r, t) => ([t.symbol, t.name].flat().forEach((n) => {
+    r[n.toLowerCase()] = t;
   }), r), {});
-  return class a {
-    constructor(n, o) {
+  return class i {
+    constructor(t, n) {
       u(this, "value");
       u(this, "unitConfig");
-      this.value = n, o ? this.unitConfig = s[o.toLowerCase()] : this.unitConfig = t;
+      this.value = t, n ? this.unitConfig = s[n.toLowerCase()] : this.unitConfig = e;
     }
-    static from(n) {
-      const [o, i] = f(n);
-      return new a(o, i);
+    static from(t) {
+      const [n, a] = m(t);
+      return new i(n, a);
     }
     get baseValue() {
       return this.value * this.unitConfig.factor;
@@ -40,23 +40,25 @@ function c(e) {
     get name() {
       return typeof this.unitConfig.name == "string" ? this.unitConfig.name : this.unitConfig.name[0];
     }
-    to(n) {
-      const o = s[n.toLowerCase()], i = this.baseValue / o.factor;
-      return new a(i, n);
+    to(t) {
+      const n = s[t.toLowerCase()], a = this.baseValue / n.factor;
+      return new i(a, t);
     }
-    add(n) {
-      const o = (this.baseValue + n.baseValue) / this.unitConfig.factor;
-      return new a(o, this.symbol);
+    add(t) {
+      (typeof t == "string" || typeof t == "number") && (t = i.from(t));
+      const n = (this.baseValue + t.baseValue) / this.unitConfig.factor;
+      return new i(n, this.symbol);
     }
-    subtract(n) {
-      const o = (this.baseValue - n.baseValue) / this.unitConfig.factor;
-      return new a(o, this.symbol);
+    subtract(t) {
+      (typeof t == "string" || typeof t == "number") && (t = i.from(t));
+      const n = (this.baseValue - t.baseValue) / this.unitConfig.factor;
+      return new i(n, this.symbol);
     }
     format() {
       return `${this.value}${this.symbol}`;
     }
     clone() {
-      return new a(this.value, this.symbol);
+      return new i(this.value, this.symbol);
     }
     toString() {
       return this.format();
@@ -80,6 +82,6 @@ const b = c([
 export {
   b as Duration,
   c as createUnitFactory,
-  f as parseValueUnitString
+  m as parseValueUnitString
 };
 //# sourceMappingURL=unit-factory.js.map
