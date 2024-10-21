@@ -1,3 +1,6 @@
+# unit-factory
+A lightweight JavaScript library for working with measurement units. It provides a robust API for conversion and manipulation, allowing the creation of custom unit factories. Designed with user-friendliness in mind, it serves as an ideal solution for both small projects and large-scale applications.
+
 ## Quickstart
 
 Via CDN:
