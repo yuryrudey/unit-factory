@@ -1,4 +1,4 @@
-## Installation
+## Quickstart
 
 Via CDN:
 ```html
