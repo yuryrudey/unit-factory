@@ -58,6 +58,12 @@ function c(e) {
     clone() {
       return new a(this.value, this.symbol);
     }
+    toString() {
+      return this.format();
+    }
+    valueOf() {
+      return this.baseValue;
+    }
   };
 }
 const b = c([

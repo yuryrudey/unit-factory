@@ -71,5 +71,13 @@ export function createUnitFactory<T extends UnitConfig>(unitConfigs: T[]) {
     clone() {
       return new Unit(this.value, this.symbol)
     }
+
+    toString() {
+      return this.format()
+    }
+
+    valueOf() {
+      return this.baseValue
+    }
   } as UnitFactory<UnitSymbol, UnitName, UnitIdentifier>
 }

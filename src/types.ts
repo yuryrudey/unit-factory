@@ -16,6 +16,8 @@ export interface UnitInstance<US, UN, UI> {
   subtract(operand: UnitInstance<US, UN, UI>): UnitInstance<US, UN, UI>
   format(): string
   clone(): UnitInstance<US, UN, UI>
+  toString(): string
+  valueOf(): number
 }
 
 export interface UnitFactory<US, UN, UI> {
