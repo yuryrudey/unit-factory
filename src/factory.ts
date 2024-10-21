@@ -64,6 +64,10 @@ export function createUnitFactory<T extends UnitConfig>(unitConfigs: T[]) {
       return new Unit(resultValue, this.symbol)
     }
 
+    format() {
+      return `${this.value}${this.symbol}`
+    }
+
     clone() {
       return new Unit(this.value, this.symbol)
     }

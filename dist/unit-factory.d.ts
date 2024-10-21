@@ -25,6 +25,7 @@ declare interface UnitInstance<US, UN, UI> {
     to(identifier: UI): UnitInstance<US, UN, UI>;
     add(operand: UnitInstance<US, UN, UI>): UnitInstance<US, UN, UI>;
     subtract(operand: UnitInstance<US, UN, UI>): UnitInstance<US, UN, UI>;
+    format(): string;
     clone(): UnitInstance<US, UN, UI>;
 }
 
