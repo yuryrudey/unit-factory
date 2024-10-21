@@ -1,4 +1,3 @@
-
 ## Installation
 
 Via CDN:
@@ -17,4 +16,3 @@ yarn add unit-factory
 # pnpm
 pnpm add unit-factory
 ```
-    
