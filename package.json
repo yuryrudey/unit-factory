@@ -1,16 +1,18 @@
 {
   "name": "unit-factory",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "build": "tsc && vite build"
   },
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.4.8",
-    "vite-plugin-dts": "^4.2.4"
+    "typescript": "^5.7.2",
+    "vite": "^6.0.2",
+    "vite-plugin-dts": "^4.3.0"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "./dist/unit-factory.d.ts",
   "main": "./dist/unit-factory.cjs",
   "module": "./dist/unit-factory.js",
